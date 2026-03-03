@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button"
 const QUICK_CHIPS = ["Кто ты?", "Покажи арт", "Над чем работаешь?"]
 
 const RESPONSES: Record<string, string> = {
-  "Кто ты?": "Я AI-помощник Алекса! Помогаю показать работы и рассказать о нем. Хочешь узнать больше?",
+  "Кто ты?": "Я AI-помощник Панды! Помогаю показать работы и рассказать о ней. Хочешь узнать больше?",
   "Покажи арт":
-    "С удовольствием покажу работы Алекса! В них сочетаются цифровые и традиционные техники.",
+    "С удовольствием покажу работы Панды! В них сочетаются цифровые и традиционные техники.",
   "Над чем работаешь?":
-    "Сейчас в работе несколько проектов! Алекс занимается AI-приложениями и креативным кодингом.",
+    "Сейчас в работе несколько проектов! Панда занимается AI-приложениями и креативными идеями.",
 }
 
 const ACTION_RESPONSES: Record<string, { response: string; action: string }> = {
@@ -19,7 +19,7 @@ const ACTION_RESPONSES: Record<string, { response: string; action: string }> = {
   "открой резюме": { response: "Открываю резюме!", action: "resume" },
   "покажи резюме": { response: "Вот резюме!", action: "resume" },
   "открой обо мне": { response: "Открываю раздел обо мне!", action: "about" },
-  "покажи обо мне": { response: "Расскажу об Алексе!", action: "about" },
+  "покажи обо мне": { response: "Расскажу о Панде!", action: "about" },
   "открой статьи": { response: "Открываю статьи!", action: "writings" },
   "покажи статьи": { response: "Вот статьи!", action: "writings" },
 }
@@ -62,7 +62,7 @@ export function ChatPanel() {
     } else {
       // Default response for non-action messages
       const defaultResponse =
-        "Интересно! Я помогу изучить работы Алекса. Попробуй написать «открой арт» или «покажи резюме»!"
+        "Интересно! Я помогу изучить работы Панды. Попробуй написать «открой арт» или «покажи резюме»!"
       setMessages((prev) => [...prev, { text: userMessage, isUser: true }, { text: defaultResponse, isUser: false }])
     }
   }
