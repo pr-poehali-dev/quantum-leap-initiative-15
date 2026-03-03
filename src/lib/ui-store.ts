@@ -1,24 +1,26 @@
 import { create } from "zustand"
 
-type Persona = "assistant" | "alex"
-type AppType = "about" | "resume" | "writings" | "art" | null
+type Role = "student" | "parent" | "teacher" | "admin" | null
+type AppType = "dashboard" | "courses" | "catalog" | "analytics" | "chat" | "profile" | "admin" | null
 
 interface UIState {
-  persona: Persona
+  role: Role
   osOpen: boolean
   activeApp: AppType
-  setPersona: (persona: Persona) => void
+  setRole: (role: Role) => void
   openOS: (app?: AppType) => void
   closeOS: () => void
   setActiveApp: (app: AppType) => void
+  logout: () => void
 }
 
 export const useUIStore = create<UIState>((set) => ({
-  persona: "assistant",
+  role: null,
   osOpen: false,
   activeApp: null,
-  setPersona: (persona) => set({ persona }),
+  setRole: (role) => set({ role, osOpen: true, activeApp: "dashboard" }),
   openOS: (app = null) => set({ osOpen: true, activeApp: app }),
   closeOS: () => set({ osOpen: false, activeApp: null }),
   setActiveApp: (app) => set({ activeApp: app }),
+  logout: () => set({ role: null, osOpen: false, activeApp: null }),
 }))
